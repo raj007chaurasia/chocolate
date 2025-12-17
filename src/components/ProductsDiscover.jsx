@@ -12,7 +12,7 @@ const items = [
 
 export default function ProductsDiscover() {
   return (
-    <section className="bg-white mt-10">
+    <section className="bg-[#fffaf9] mt-10">
       <div className=" mx-auto px-6 lg:px-8 py-14 ">
         
         
@@ -60,7 +60,7 @@ export default function ProductsDiscover() {
     
           <div className="mt-12 flex justify-center w-full">
             <a
-              href="/products"
+              href="/product"
               className="bg-[#2f1d19] text-white px-8 py-3 rounded-full text-sm font-semibold shadow"
             >
               ALL PRODUCT

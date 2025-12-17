@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section className="bg-white">
+    <section className="bg-[#fffaf9]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 py-12 ">
           {/* LEFT - Text */}
@@ -19,13 +20,13 @@ export default function Hero() {
             </p>
 
             <div className="mt-8">
-              <a
-                href="#shop"
+              <Link
+                to="/product"
                 className="inline-block bg-[#2f1d19] text-white text-sm font-semibold px-16 py-3 rounded-sm shadow-[0_16px_28px_rgba(47,29,25,0.25)] transform transition hover:-translate-y-0.5"
                 aria-label="Shop Now"
               >
                 SHOP NOW
-              </a>
+              </Link>
             </div>
           </div>
 

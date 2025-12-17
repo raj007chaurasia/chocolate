@@ -10,9 +10,8 @@ export default function Nav() {
       <div className="hidden md:flex justify-center  items-end max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12">
         <nav className="flex space-x-6 items-center justify-end w-1/2 text-[#2F1D19]  ">
           <a href="/" className="text-sm font-bold text-[#2F1D19] hover:text-[#AB8E6A] uppercase">Home</a>
-          <a href="/category" className="text-sm text-[#2F1D19] font-bold hover:text-[#AB8E6A] uppercase">Category</a>
           <a href="/product" className="text-sm text-[#2F1D19] font-bold hover:text-[#AB8E6A] uppercase">Products</a>
-          <a href="/aboutus" className="text-sm text-[#2F1D19] font-bold hover:text-[#AB8E6A] uppercase">About Us</a>
+          <a href="/about" className="text-sm text-[#2F1D19] font-bold hover:text-[#AB8E6A] uppercase">About Us</a>
           <a href="/contact" className="text-sm text-[#2F1D19] font-bold hover:text-[#AB8E6A] uppercase">Contact</a>
         </nav>
         <div className="text-xs font-bold  text-[#2F1D19] flex  w-1/3 items-center justify-end space-x-2">
@@ -45,7 +44,6 @@ export default function Nav() {
       >
         <div className="px-4 pt-2 pb-6 flex flex-col justify-center space-y-2">
           <a href="/" onClick={() => setOpen(false)} className="block text-base font-medium tracking-wider py-2">Home</a>
-          <a href="/category" onClick={() => setOpen(false)} className="block text-base font-medium tracking-wider py-2">Category</a>
           <a href="/product" onClick={() => setOpen(false)} className="block text-base font-medium tracking-wider py-2">Products</a>
           <a href="/aboutus" onClick={() => setOpen(false)} className="block text-base font-medium tracking-wider py-2">About Us</a>
           <a href="/contact" onClick={() => setOpen(false)} className="block text-base font-medium tracking-wider py-2">Contact</a>

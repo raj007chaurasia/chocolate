@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
 
@@ -109,11 +110,20 @@ export default function Product() {
   const [selectedTags, setSelectedTags] = useState([]);
   const Navigate = useNavigate();
 
+  // Wishlist state for demo (ids of products in wishlist)
+  const [wishlist, setWishlist] = useState([]);
+
+  const toggleWishlist = (id) => {
+    setWishlist((prev) =>
+      prev.includes(id) ? prev.filter((pid) => pid !== id) : [...prev, id]
+    );
+  };
+
   return (
-    <div className=" min-h-screen pt-4 pb-12">
+    <div className=" min-h-screen bg-[#fffaf9]  pb-12">
       {/* Header Bar */}
       <div className="bg-[#ab8351] text-white px-6 py-3 flex items-center justify-between">
-        <h1 className="text-lg font-bold tracking-wide">Product Page</h1>
+        <h1 className="text-xl lg:ml-10 font-bold tracking-wide">Product Page</h1>
       
       </div>
 
@@ -188,24 +198,43 @@ export default function Product() {
           {/* Product Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
             {products.map(product => (
-              <div key={product.id} className="bg-white rounded-lg shadow-sm p-4 flex flex-col items-center hover:shadow-md transition">
-                <img src={product.img} alt={product.name} className="w-28 h-32 object-contain mb-3" />
-                <h3 className="text-sm font-semibold text-center mb-1 text-[#3b2a23]">{product.name}</h3>
+              <div
+                key={product.id}
+                className="bg-white rounded-lg border border-[#ececec] shadow hover:shadow-lg transition flex flex-col items-center p-4 group relative"
+              >
+                <img
+                  src={product.img}
+                  alt={product.name}
+                  className="w-28 h-32 object-contain mb-3 rounded-lg group-hover:scale-105 transition-transform duration-300"
+                />
+                <h3 className="text-sm font-semibold text-center mb-1 text-[#3b2a23] group-hover:text-[#ab8351] transition-colors duration-200">{product.name}</h3>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-[#AB8E6A] font-bold text-base">₹{product.price}</span>
                   <span className="text-xs line-through text-[#b7b7b7]">₹{product.oldPrice}</span>
                 </div>
-                <button onClick={()=>{Navigate("/product-details")}} className="mt-auto  bg-[#51381a] text-white px-4 py-2 rounded-full text-xs font-semibold hover:bg-[#AB8E6A]">Add to Cart</button>
+                <button onClick={()=>{Navigate("/product-details")}} className="mt-auto hover:bg-[#51381a] bg-[#ab8351] text-white px-4 py-2 rounded-full text-xs font-semibold shadow transition cursor-pointer active:scale-95">Add to Cart</button>
+                <button
+                  className="absolute top-3 right-3 text-xl group-hover:scale-125 transition-transform duration-200 cursor-pointer"
+                  onClick={() => toggleWishlist(product.id)}
+                  title={wishlist.includes(product.id) ? "Remove from Wishlist" : "Add to Wishlist"}
+                  aria-label="wishlist"
+                >
+                  {wishlist.includes(product.id) ? (
+                    <AiFillHeart className="text-[#ff4d3d] transition-colors duration-200" />
+                  ) : (
+                    <AiOutlineHeart className="text-[#ff4d3d] transition-colors duration-200" />
+                  )}
+                </button>
               </div>
             ))}
           </div>
 
           {/* Pagination */}
           <div className="flex justify-center items-center gap-2 mt-8">
-            <button className="px-3 py-1 rounded border text-[#AB8E6A] border-[#AB8E6A] hover:bg-[#ffedea]">Previous</button>
-            <button className="px-3 py-1 rounded border bg-[#AB8E6A] text-white border-[#AB8E6A]">1</button>
-            <button className="px-3 py-1 rounded border text-[#AB8E6A] border-[#AB8E6A] hover:bg-[#ffedea]">2</button>
-            <button className="px-3 py-1 rounded border text-[#AB8E6A] border-[#AB8E6A] hover:bg-[#ffedea]">Next</button>
+            <button className="px-3 py-1 rounded border text-[#AB8E6A] border-[#AB8E6A] hover:bg-[#ffedea] cursor-pointer">Previous</button>
+            <button className="px-3 py-1 rounded border bg-[#51381a] text-white border-[#AB8E6A] cursor-pointer">1</button>
+            <button className="px-3 py-1 rounded border text-[#AB8E6A] border-[#AB8E6A] hover:bg-[#ffedea] cursor-pointer">2</button>
+            <button className="px-3 py-1 rounded border text-[#AB8E6A] border-[#AB8E6A] hover:bg-[#ffedea] cursor-pointer">Next</button>
           </div>
         </main>
       </div>

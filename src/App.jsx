@@ -9,6 +9,13 @@ import Footer from './components/Footer';
 import Product from './pages/Product';
 import ProductDetails from './pages/ProductDetails';
 import NamasteLoader from './components/NamasteLoader';
+import Cart from './pages/Cart';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Contact from './pages/Contact';
+import Wishlist from './pages/Wishlist';
+import Checkout from './pages/Checkout';
+import Invoice from './pages/Invoice';
 
 
 
@@ -58,6 +65,13 @@ function AppContent() {
             <Route path="/about" element={<About />} />
             <Route path="/product" element={<Product />} />
             <Route path="/product-details" element={<ProductDetails />} />
+            <Route path="cart" element={<Cart/>}/>
+            <Route path="/registor" element={<Register/>}/>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/contact" element={<Contact/>}/>
+            <Route path='/wishlist' element={<Wishlist/>}/>
+            <Route path="/checkout" element={<Checkout/>}/>
+            <Route path="/invoice" element={<Invoice/>}/>
           </Routes>
           <Footer />
         </motion.div>

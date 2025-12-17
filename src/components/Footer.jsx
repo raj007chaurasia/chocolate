@@ -1,13 +1,11 @@
 
 export default function Footer() {
 	return (
-		<footer className="bg-[#3b2418] pt-8 pb-2 text-white mt-16">
-			<div className="lg:bg-white lg:text-[#3b2a23] flex justify-center items-center h-10 mb-2 relative lg:-top-8 px-2 sm:px-0">
-				<div className="absolute left-0 w-1/6 sm:w-1/5 h-10 bg-[#3b2418]" />
-				<span className="relative -top-2 z-10 px-2 sm:px-4 text-center w-full text-xs xs:text-sm md:text-base whitespace-nowrap overflow-x-auto">
+		<footer className="bg-[#3b2418] pt-8 pb-2 text-white ">
+			<div className=" text-[#3b2a23] flex justify-center items-center h-10 mb-2 relative  px-2 sm:px-0">
+				<span className="relative bg-white w-[500px] -top-2 z-10 px-2 rounded-xl sm:px-4 text-center py-2  text-xs xs:text-sm md:text-base whitespace-nowrap overflow-x-auto">
 					Follow Our Instagram : <span className="font-bold ">@glory.confectionery</span>
 				</span>
-				<div className="absolute right-0 w-1/6 sm:w-1/5 h-10 bg-[#3b2418]" />
 			</div>
 
 			<div className="max-w-6xl mx-auto px-2 xs:px-4 md:px-8 py-6 sm:py-8">
@@ -31,7 +29,7 @@ export default function Footer() {
 					<div>
 						<h3 className="uppercase text-xs sm:text-sm font-semibold tracking-widest mb-3 sm:mb-4">Address</h3>
 						<p className="text-xs sm:text-sm leading-5 sm:leading-6">
-							Maa Bhagwati Product , Gram Girwai , Lashkar , Gwalior<br />
+							Maa Bhagwati Product , Gram Girwai , Lashkar , Gwalior
 							474001, India
 						</p>
 					</div>

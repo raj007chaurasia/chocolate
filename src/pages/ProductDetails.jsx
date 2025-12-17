@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PopularProducts from "../components/PopularProducts";
 
 const product = {
 	id: 1,
@@ -32,44 +33,8 @@ export default function ProductDetails() {
 	const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
 	const [tab, setTab] = useState("description");
 
-	// Dummy recommended products
-	const recommended = [
-		{
-			id: 2,
-			name: "Best snakes with hazel nut mix pack 200gm",
-			price: 120.25,
-			oldPrice: 123.25,
-			img: "/images/c1.png",
-			rating: 4.5,
-		},
-		{
-			id: 3,
-			name: "Sweet snakes crunchy nut mix 250gm pack",
-			price: 100.0,
-			oldPrice: 110.0,
-			img: "/images/c2.png",
-			rating: 5.0,
-		},
-		{
-			id: 4,
-			name: "Best snakes with hazel nut mix pack 200gm",
-			price: 120.25,
-			oldPrice: 128.25,
-			img: "/images/c3.png",
-			rating: 4.5,
-		},
-		{
-			id: 5,
-			name: "Sweet snakes crunchy nut mix 250gm pack",
-			price: 100.0,
-			oldPrice: 110.0,
-			img: "/images/c4.png",
-			rating: 5.0,
-		},
-	];
-
 	return (
-		<div className=" min-h-screen py-8 px-2 md:px-0">
+		<div className=" min-h-screen bg-[#fffaf9] py-8 px-2 md:px-0">
 			<div className="max-w-5xl mx-auto bg-[#4e2d2a]/10 rounded-lg shadow p-6 md:p-10 flex flex-col md:flex-row gap-8">
 				{/* Left: Images */}
 				<div className="flex flex-col items-center md:w-1/2">
@@ -126,7 +91,7 @@ export default function ProductDetails() {
 					</div>
 					<div className="flex gap-2 mb-4">
 						<input type="number" min="1" defaultValue={1} className="w-16 border rounded px-2 py-1 text-sm" />
-						<button className="bg-[#51381a] hover:bg-[#AB8E6A] text-white px-6 py-2 rounded-full text-sm font-semibold cursor-pointer">Add To Cart</button>
+						<button className="hover:bg-[#51381a] bg-[#AB8E6A] text-white px-6 py-2 rounded text-sm font-semibold cursor-pointer">Add To Cart</button>
 					</div>
 				</div>
 			</div>
@@ -169,28 +134,8 @@ export default function ProductDetails() {
 				
 			</div>
 
-            {/* Recommended Products Section (at very bottom) */}
-					<div className="max-w-5xl mx-auto mt-16 mb-8">
-						<h2 className="text-2xl font-bold text-center text-[#3b2a23] mb-8">Popular Products</h2>
-						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-							{recommended.map((item) => (
-								<div key={item.id} className="bg-white border border-[#ececec] rounded-lg p-4 flex flex-col items-center hover:shadow-md transition">
-									<img src={item.img} alt={item.name} className="w-28 h-32 object-contain mb-3" />
-									<div className="text-xs text-[#b7b7b7] mb-1">Snacks</div>
-									<div className="flex items-center gap-1 mb-1">
-										<span className="text-[#AB8E6A] font-semibold">★</span>
-										<span className="text-[#3b2a23]">({item.rating})</span>
-									</div>
-									<h3 className="text-sm font-semibold text-center mb-1 text-[#3b2a23]">{item.name}</h3>
-									<div className="flex items-center gap-2 mb-2">
-										<span className="text-[#AB8E6A] font-bold text-base">₹{item.price}</span>
-										<span className="text-xs line-through text-[#b7b7b7]">₹{item.oldPrice}</span>
-									</div>
-									<button className="mt-auto bg-[#51381a] text-white px-4 py-2 rounded-full text-xs font-semibold hover:bg-[#AB8E6A]">Add to Cart</button>
-								</div>
-							))}
-						</div>
-					</div>
+            {/* Recommended Products Section  */}
+					<PopularProducts/>
 		</div>
 	);
 }
