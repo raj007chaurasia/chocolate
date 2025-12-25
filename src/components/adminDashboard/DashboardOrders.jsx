@@ -55,6 +55,7 @@ export default function DashboardOrders() {
   const pageSize = 6;
 
   const [draftStatus, setDraftStatus] = useState(() => ({}));
+  const [draftPaid, setDraftPaid] = useState(() => ({}));
 
   const getOrderTotalQty = (order) => {
     const items = Array.isArray(order?.items) ? order.items : [];
@@ -62,6 +63,16 @@ export default function DashboardOrders() {
       const qty = Number(item?.qty ?? item?.quantity ?? 0) || 0;
       return qty > 0 ? sum + qty : sum;
     }, 0);
+  };
+
+  const getOrderProductsLabel = (order) => {
+    const items = Array.isArray(order?.items) ? order.items : [];
+    const names = items
+      .map((it) => String(it?.name ?? it?.title ?? "").trim())
+      .filter(Boolean);
+    if (names.length === 0) return "—";
+    const uniqueNames = Array.from(new Set(names));
+    return uniqueNames.join(", ");
   };
 
   const formatMultipliedProduce = (variant, totalQty) => {
@@ -227,23 +238,65 @@ export default function DashboardOrders() {
     return next ?? fallback;
   };
 
+  const getSelectedPaid = (id, fallback) => {
+    const next = draftPaid?.[id];
+    return next ?? fallback;
+  };
+
   const onChangeDraftStatus = (id, next) => {
     setDraftStatus((prev) => ({ ...prev, [id]: next }));
   };
 
-  const onUpdateStatus = (id) => {
+  const onChangeDraftPaid = (id, next) => {
+    setDraftPaid((prev) => ({ ...prev, [id]: next }));
+  };
+
+  const onUpdateOrder = (id) => {
     const current = orders.find((o) => o.id === id);
     if (!current) return;
 
-    const next = getSelectedStatus(id, current.status);
-    if (!next || next === current.status) return;
+    const nextStatus = getSelectedStatus(id, current.status);
+    const nextPaid = getSelectedPaid(id, current.paid);
 
-    setOrders((prev) => prev.map((o) => (o.id === id ? { ...o, status: next } : o)));
-    setDraftStatus((prev) => {
-      const copy = { ...prev };
-      delete copy[id];
-      return copy;
-    });
+    const statusChanged = Boolean(nextStatus) && nextStatus !== current.status;
+    const paidChanged = typeof nextPaid === "boolean" && nextPaid !== current.paid;
+    if (!statusChanged && !paidChanged) return;
+
+    setOrders((prev) =>
+      prev.map((o) => {
+        if (o.id !== id) return o;
+        return {
+          ...o,
+          ...(statusChanged ? { status: nextStatus } : null),
+          ...(paidChanged ? { paid: nextPaid } : null),
+        };
+      })
+    );
+
+    if (statusChanged) {
+      setDraftStatus((prev) => {
+        const copy = { ...prev };
+        delete copy[id];
+        return copy;
+      });
+    }
+
+    if (paidChanged) {
+      setDraftPaid((prev) => {
+        const copy = { ...prev };
+        delete copy[id];
+        return copy;
+      });
+    }
+  };
+
+  const hasOrderDraftChanges = (order) => {
+    if (!order) return false;
+    const nextStatus = getSelectedStatus(order.id, order.status);
+    const nextPaid = getSelectedPaid(order.id, order.paid);
+    const statusChanged = Boolean(nextStatus) && nextStatus !== order.status;
+    const paidChanged = typeof nextPaid === "boolean" && nextPaid !== order.paid;
+    return statusChanged || paidChanged;
   };
 
   const summary = useMemo(() => {
@@ -463,7 +516,7 @@ export default function DashboardOrders() {
                 <th className="text-left font-bold px-6 py-4 whitespace-nowrap">Order ID</th>
                 <th className="text-left font-bold px-6 py-4 whitespace-nowrap">Order Date</th>
                 <th className="text-left font-bold px-6 py-4 whitespace-nowrap">Customer Info</th>
-                <th className="text-left font-bold px-6 py-4 whitespace-nowrap">Store</th>
+                <th className="text-left font-bold px-6 py-4 whitespace-nowrap">Product</th>
                 <th className="text-right font-bold px-6 py-4 whitespace-nowrap">Total Qty</th>
                 <th className="text-right font-bold px-6 py-4 whitespace-nowrap">Total Amount</th>
                 <th className="text-left font-bold px-6 py-4 whitespace-nowrap">Order Status</th>
@@ -487,7 +540,7 @@ export default function DashboardOrders() {
                       <div className="font-semibold text-[#7c6a5a]">{o.customerName}</div>
                       <div className="text-[#7c6a5a]">{o.customerPhone}</div>
                     </td>
-                    <td className="px-6 py-5 font-semibold text-[#3b2a23]">{o.store}</td>
+                    <td className="px-6 py-5 font-semibold text-[#3b2a23]">{getOrderProductsLabel(o)}</td>
                     <td className="px-6 py-5 text-right text-[#3b2a23]">
                       <span className="inline-flex items-center justify-center min-w-10 px-3 py-1 rounded-md bg-[#f7f7f7] border border-[#ececec] text-[#3b2a23] font-bold">
                         {getOrderTotalQty(o)}
@@ -495,8 +548,16 @@ export default function DashboardOrders() {
                     </td>
                     <td className="px-6 py-5 text-right text-[#3b2a23]">
                       <div className="font-semibold">₹{o.amount.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-                      <div className={o.paid ? "text-green-600 font-semibold" : "text-red-600 font-semibold"}>
-                        {o.paid ? "Paid" : "Unpaid"}
+                      <div className="mt-2 flex items-center justify-end gap-2">
+                        <select
+                          value={getSelectedPaid(o.id, o.paid)}
+                          onChange={(e) => onChangeDraftPaid(o.id, e.target.value === "true")}
+                          className="w-[120px] rounded-md border border-[#ececec] bg-white px-3 py-2 text-xs text-[#3b2a23] outline-none focus:border-[#ab8351]"
+                          aria-label="Payment status"
+                        >
+                          <option value="true">Paid</option>
+                          <option value="false">Unpaid</option>
+                        </select>
                       </div>
                     </td>
                     <td className="px-6 py-5">
@@ -513,18 +574,18 @@ export default function DashboardOrders() {
                             </option>
                           ))}
                         </select>
-                        <button
-                          type="button"
-                          onClick={() => onUpdateStatus(o.id)}
-                          disabled={getSelectedStatus(o.id, o.status) === o.status}
-                          className="cursor-pointer inline-flex items-center justify-center rounded-md bg-[#ab8351] px-3 py-2 text-xs font-bold text-white hover:opacity-95 disabled:opacity-50"
-                        >
-                          Update
-                        </button>
                       </div>
                     </td>
                     <td className="px-6 py-5">
                       <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => onUpdateOrder(o.id)}
+                          disabled={!hasOrderDraftChanges(o)}
+                          className="cursor-pointer inline-flex items-center justify-center rounded-md bg-[#ab8351] px-3 py-2 text-xs font-bold text-white hover:opacity-95 disabled:opacity-50"
+                        >
+                          Update
+                        </button>
                         <button
                           type="button"
                           className="cursor-pointer w-10 h-10 rounded-md border border-[#ab8351] text-[#ab8351] hover:bg-[#fffaf9] flex items-center justify-center transition-colors duration-150"
