@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PopularProducts from "../components/PopularProducts";
+import { useTranslation } from "react-i18next";
 
 const product = {
 	id: 1,
@@ -29,6 +30,8 @@ const product = {
 };
 
 export default function ProductDetails() {
+	const { t } = useTranslation();
+
 	const [selectedImg, setSelectedImg] = useState(product.images[0]);
 	const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
 	const [tab, setTab] = useState("description");
@@ -61,14 +64,14 @@ export default function ProductDetails() {
 					<p className="text-sm text-[#7c6a5a] mb-2">{product.description}</p>
 					<div className="flex items-center gap-2 mb-2">
 						<span className="text-[#AB8E6A] font-semibold">★ {product.rating}</span>
-						<span className="text-xs text-[#7c6a5a]">({product.reviews} Review)</span>
+						<span className="text-xs text-[#7c6a5a]">{t("productDetails.reviews", { count: product.reviews })}</span>
 					</div>
 					<div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs mb-2">
-						<div><span className="font-bold">Brand:</span> {product.brand}</div>
-						<div><span className="font-bold">Flavor:</span> {product.flavor}</div>
-						<div><span className="font-bold">Diet Type:</span> {product.diet}</div>
-						<div><span className="font-bold">Weight:</span> {product.weight}</div>
-						<div className="col-span-2"><span className="font-bold">Tags:</span> {product.tags.join(", ")}</div>
+						<div><span className="font-bold">{t("productDetails.brand")}</span> {product.brand}</div>
+						<div><span className="font-bold">{t("productDetails.flavor")}</span> {product.flavor}</div>
+						<div><span className="font-bold">{t("productDetails.dietType")}</span> {product.diet}</div>
+						<div><span className="font-bold">{t("productDetails.weight")}</span> {product.weight}</div>
+						<div className="col-span-2"><span className="font-bold">{t("productDetails.tags")}</span> {product.tags.join(", ")}</div>
 						{product.info.map((i, idx) => (
 							<div key={idx}><span className="font-bold">{i.label}:</span> {i.value}</div>
 						))}
@@ -78,7 +81,7 @@ export default function ProductDetails() {
 						<span className="text-xs line-through text-[#b7b7b7]">₹{product.oldPrice}</span>
 					</div>
 					<div className="flex items-center gap-2 mb-4">
-						<span className="font-semibold text-sm">Size/Weight:</span>
+						<span className="font-semibold text-sm">{t("productDetails.sizeWeight")}</span>
 						{product.sizes.map(size => (
 							<button
 								key={size}
@@ -91,7 +94,7 @@ export default function ProductDetails() {
 					</div>
 					<div className="flex gap-2 mb-4">
 						<input type="number" min="1" defaultValue={1} className="w-16 border rounded px-2 py-1 text-sm" />
-						<button className="hover:bg-[#51381a] bg-[#AB8E6A] text-white px-6 py-2 rounded text-sm font-semibold cursor-pointer">Add To Cart</button>
+						<button className="hover:bg-[#51381a] bg-[#AB8E6A] text-white px-6 py-2 rounded text-sm font-semibold cursor-pointer">{t("productDetails.addToCart")}</button>
 					</div>
 				</div>
 			</div>
@@ -103,13 +106,13 @@ export default function ProductDetails() {
 						className={`px-4 py-2 font-semibold text-sm border-b-2 transition ${tab === "description" ? "border-[#AB8E6A] text-[#AB8E6A]" : "border-transparent text-[#3b2a23]"}`}
 						onClick={() => setTab("description")}
 					>
-						Description
+						{t("productDetails.description")}
 					</button>
 					<button
 						className={`px-4 py-2 font-semibold text-sm border-b-2 transition ${tab === "information" ? "border-[#AB8E6A] text-[#AB8E6A]" : "border-transparent text-[#3b2a23]"}`}
 						onClick={() => setTab("information")}
 					>
-						Information
+						{t("productDetails.information")}
 					</button>
 					
 				</div>
@@ -118,7 +121,7 @@ export default function ProductDetails() {
 						<p className="text-sm text-[#3b2a23] mb-4">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Error in vero sapiente dicta, odio dolore vero tempora voluptatum, consectetur, quasi accusamus consequatur. Qui sequi doloremque, consequatur, odio autem dignissimos consectetur atque vero in perferendis provident quis.
 						</p>
-						<h4 className="font-semibold mb-2">Packaging & Delivery</h4>
+						<h4 className="font-semibold mb-2">{t("productDetails.packagingDelivery")}</h4>
 						<p className="text-sm text-[#3b2a23]">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Error in vero perferendis dolor! Qui vel consequatur, odio autem dignissimos consectetur atque vero in perferendis provident quis.
 						</p>
@@ -127,7 +130,7 @@ export default function ProductDetails() {
 				{tab === "information" && (
 					<div>
 						<p className="text-sm text-[#3b2a23]">
-							Information about the product goes here. You can add more details as needed.
+							{t("productDetails.infoPlaceholder")}
 						</p>
 					</div>
 				)}

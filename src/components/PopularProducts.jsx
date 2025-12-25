@@ -1,6 +1,8 @@
 import React from 'react'
+import { useTranslation } from "react-i18next";
 
 const PopularProducts = () => {
+	const { t } = useTranslation();
 
 
 	const recommended = [
@@ -41,12 +43,12 @@ const PopularProducts = () => {
 
   return (
    <div className="max-w-5xl mx-auto mt-16 mb-8">
-						<h2 className="text-2xl font-bold text-center text-[#3b2a23] mb-8">Popular Products</h2>
+						<h2 className="text-2xl font-bold text-center text-[#3b2a23] mb-8">{t("home.popularTitle")}</h2>
 						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
 							{recommended.map((item) => (
 								<div key={item.id} className="bg-white border border-[#ececec] rounded-lg p-4 flex flex-col items-center hover:shadow-md transition">
 									<img src={item.img} alt={item.name} className="w-28 h-32 object-contain mb-3" />
-									<div className="text-xs text-[#b7b7b7] mb-1">Snacks</div>
+									<div className="text-xs text-[#b7b7b7] mb-1">{t("home.snacks")}</div>
 									<div className="flex items-center gap-1 mb-1">
 										<span className="text-[#AB8E6A] font-semibold">★</span>
 										<span className="text-[#3b2a23]">({item.rating})</span>
@@ -56,7 +58,7 @@ const PopularProducts = () => {
 										<span className="text-[#AB8E6A] font-bold text-base">₹{item.price}</span>
 										<span className="text-xs line-through text-[#b7b7b7]">₹{item.oldPrice}</span>
 									</div>
-									<button className="mt-auto hover:bg-[#51381a] cursor-pointer text-white px-4 py-2 rounded-full text-xs font-semibold bg-[#AB8E6A]">Add to Cart</button>
+									<button className="mt-auto hover:bg-[#51381a] cursor-pointer text-white px-4 py-2 rounded-full text-xs font-semibold bg-[#AB8E6A]">{t("home.addToCart")}</button>
 								</div>
 							))}
 						</div>

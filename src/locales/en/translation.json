@@ -1,0 +1,189 @@
+{
+  "language": {
+    "label": "Language",
+    "english": "English",
+    "hindi": "Hindi",
+    "chinese": "Chinese"
+  },
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About Us",
+    "contact": "Contact",
+    "account": "Account",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "searchPlaceholder": "Search for items...",
+    "allCategories": "All Categories",
+    "categories": {
+      "truffles": "Truffles",
+      "chocolates": "Chocolates",
+      "spreads": "Spreads",
+      "lollipops": "Lollipops"
+    }
+  },
+  "hero": {
+    "title": "Welcome To Our\nWholesale Chocolate\nDistribution Agency",
+    "subtitle": "We believe that chocolate is one of life’s greatest pleasures, and we're passionate about bringing the best quality chocolate to our customers.",
+    "shopNow": "Shop Now"
+  },
+  "home": {
+    "productsTitle": "Our Product",
+    "productsSubtitle": "Satisfy your sweet tooth with our premium chocolate, expertly crafted from the highest quality cocoa beans for a rich, decadent flavor.",
+    "discoverTitle": "Discover Our Products",
+    "allProduct": "All Product",
+    "popularTitle": "Popular Products",
+    "addToCart": "Add to Cart",
+    "snacks": "Snacks",
+    "categories": {
+      "chocolateBars": "CHOCOLATE BARS",
+      "truffles": "TRUFFLES",
+      "lollipops": "LOLLIPOPS",
+      "fruitsAndNuts": "FRUITS AND NUTS",
+      "sugarFree": "SUGAR-FREE",
+      "spreads": "SPREADS"
+    }
+  },
+  "footer": {
+    "followInstagram": "Follow Our Instagram:",
+    "openingHours": "Opening Hours",
+    "hours": {
+      "monSat": "Mon-Sat: 9:00am to 7:00am",
+      "sunday": "Sunday: 7:00am to 1:00pm",
+      "holidays": "Close on Holidays"
+    },
+    "usefulLinks": "Useful Links",
+    "privacyPolicy": "Privacy Policy",
+    "orderTracking": "Order Tracking",
+    "addressTitle": "Address",
+    "copyright": "© 2026 Glory (Maa Bhagwati Product). All Right Reserved"
+  },
+  "about": {
+    "title": "About Us",
+    "heading": "About The Glory Maa Bhagwati Product",
+    "vendors": "Vendors",
+    "customers": "Customers",
+    "products": "Products",
+    "features": {
+      "packing": "Product Packing",
+      "support": "24x7 Support",
+      "delivery": "Delivery in 5 Days",
+      "secure": "Payment Secure",
+      "lorem": "Lorem ipsum dolor sit amet, consectetur adipisicing."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Name*",
+    "email": "Email*",
+    "phone": "Phone Number*",
+    "message": "Message*",
+    "yourName": "Your Name",
+    "yourEmail": "Your Email",
+    "yourPhone": "Your Phone Number",
+    "yourMessage": "Your Message",
+    "send": "Send Message"
+  },
+  "cart": {
+    "title": "Cart",
+    "product": "Product",
+    "price": "Price",
+    "quantity": "Quantity",
+    "total": "Total",
+    "action": "Action",
+    "remove": "Remove",
+    "continueShopping": "Continue Shopping",
+    "checkout": "Check Out"
+  },
+  "product": {
+    "title": "Product Page",
+    "category": "Product Category",
+    "filterByPrice": "Filter by Price",
+    "weight": "Weight",
+    "tags": "Product Tags",
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "wishlist": {
+      "remove": "Remove from Wishlist",
+      "add": "Add to Wishlist"
+    },
+    "categories": {
+      "all": "All Chocolates",
+      "dark": "Dark Chocolate",
+      "milk": "Milk Chocolate",
+      "truffles": "Truffles",
+      "spreads": "Spreads",
+      "lollipops": "Lollipops"
+    },
+    "tagsList": {
+      "vegetarian": "Vegetarian",
+      "sugarfree": "Sugarfree",
+      "glutenfree": "Glutenfree"
+    }
+  },
+  "wishlist": {
+    "title": "Wishlist",
+    "empty": "Your wishlist is empty.",
+    "addToCart": "Add to Cart",
+    "remove": "Remove from Wishlist"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "orderSummary": "Order Summary",
+    "noItems": "No items in cart.",
+    "qty": "Qty: {{count}}",
+    "subtotal": "Subtotal",
+    "gst": "GST (5%)",
+    "delivery": "Delivery",
+    "total": "Total",
+    "billingDetails": "Billing Details",
+    "fullName": "Full Name",
+    "enterName": "Enter your name",
+    "email": "Email",
+    "enterEmail": "Enter your email",
+    "address": "Address",
+    "enterAddress": "Enter your address",
+    "city": "City",
+    "pincode": "Pincode",
+    "placeOrder": "Place Order"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "password": "Password*",
+    "enterEmail": "Enter your email",
+    "enterPassword": "Enter your password",
+    "createAccount": "Create an account?",
+    "haveAccount": "Have an account?",
+    "firstName": "First Name*",
+    "lastName": "Last Name*",
+    "phone": "Phone Number*",
+    "address": "Address*",
+    "city": "City*",
+    "postCode": "Post Code",
+    "country": "Country*",
+    "region": "Region State*",
+    "enterFirstName": "Enter Your First Name",
+    "enterLastName": "Enter Your Last Name",
+    "enterPhone": "Enter Your phone number"
+  },
+  "productDetails": {
+    "reviews": "({{count}} Review)",
+    "brand": "Brand:",
+    "flavor": "Flavor:",
+    "dietType": "Diet Type:",
+    "weight": "Weight:",
+    "tags": "Tags:",
+    "sizeWeight": "Size/Weight:",
+    "addToCart": "Add To Cart",
+    "description": "Description",
+    "information": "Information",
+    "packagingDelivery": "Packaging & Delivery",
+    "infoPlaceholder": "Information about the product goes here. You can add more details as needed."
+  },
+  "admin": {
+    "title": "Admin Panel"
+  }
+}

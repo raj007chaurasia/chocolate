@@ -1,6 +1,6 @@
-import { nav } from "framer-motion/client";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Dummy cart data (should be replaced with real cart context or props)
 const initialCart = [
@@ -28,6 +28,8 @@ const initialCart = [
 ];
 
 export default function Checkout() {
+  const { t } = useTranslation();
+
   const [cart] = useState(initialCart);
   const [orderPlaced, setOrderPlaced] = useState(false);
   const navigate = useNavigate();
@@ -49,16 +51,16 @@ export default function Checkout() {
     <div className="bg-[#fffaf9] min-h-screen pb-12">
       {/* Header Bar */}
       <div className="bg-[#ab8351] text-white px-6 py-3 flex items-center justify-between">
-        <h1 className="text-xl lg:ml-20 font-bold tracking-wide">Checkout</h1>
+        <h1 className="text-xl lg:ml-20 font-bold tracking-wide">{t("checkout.title")}</h1>
       </div>
 
       <div className="max-w-4xl mx-auto mt-10 px-2">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Order Summary */}
           <div className="bg-white rounded-lg shadow p-6 border border-[#ececec]">
-            <h2 className="text-lg font-bold text-[#3b2a23] mb-4">Order Summary</h2>
+            <h2 className="text-lg font-bold text-[#3b2a23] mb-4">{t("checkout.orderSummary")}</h2>
             {cart.length === 0 ? (
-              <div className="text-[#7c6a5a] text-center py-8">No items in cart.</div>
+              <div className="text-[#7c6a5a] text-center py-8">{t("checkout.noItems")}</div>
             ) : (
               <ul className="divide-y divide-[#ececec]">
                 {cart.map(item => (
@@ -66,7 +68,7 @@ export default function Checkout() {
                     <img src={item.img} alt={item.name} className="w-14 h-14 object-contain rounded bg-white border shadow-sm" />
                     <div className="flex-1">
                       <div className="font-semibold text-[#3b2a23] text-sm leading-tight">{item.name}</div>
-                      <div className="text-xs text-[#7c6a5a]">Qty: {item.qty}</div>
+                      <div className="text-xs text-[#7c6a5a]">{t("checkout.qty", { count: item.qty })}</div>
                     </div>
                     <div className="text-[#ab8351] font-bold text-base">₹{(item.price * item.qty).toFixed(2)}</div>
                   </li>
@@ -76,19 +78,19 @@ export default function Checkout() {
             {/* Bill Details */}
             <div className="mt-6 border-t border-[#ececec] pt-4 space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-[#7c6a5a]">Subtotal</span>
+                <span className="text-[#7c6a5a]">{t("checkout.subtotal")}</span>
                 <span className="font-semibold text-[#3b2a23]">₹{subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#7c6a5a]">GST (5%)</span>
+                <span className="text-[#7c6a5a]">{t("checkout.gst")}</span>
                 <span className="font-semibold text-[#3b2a23]">₹{tax.toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#7c6a5a]">Delivery</span>
+                <span className="text-[#7c6a5a]">{t("checkout.delivery")}</span>
                 <span className="font-semibold text-[#3b2a23]">₹{delivery.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-base font-bold border-t border-[#ececec] pt-2 mt-2">
-                <span className="text-[#ab8351]">Total</span>
+                <span className="text-[#ab8351]">{t("checkout.total")}</span>
                 <span className="text-[#ab8351]">₹{total.toFixed(2)}</span>
               </div>
             </div>
@@ -97,28 +99,28 @@ export default function Checkout() {
           {/* Billing Details & Place Order */}
           <div className="bg-white rounded-lg shadow p-6 border border-[#ececec] flex flex-col justify-between">
             <div>
-              <h2 className="text-lg font-bold text-[#3b2a23] mb-4">Billing Details</h2>
+              <h2 className="text-lg font-bold text-[#3b2a23] mb-4">{t("checkout.billingDetails")}</h2>
               <form className="space-y-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#7c6a5a] mb-1">Full Name</label>
-                  <input type="text" className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351]" placeholder="Enter your name" />
+                  <label className="block text-xs font-semibold text-[#7c6a5a] mb-1">{t("checkout.fullName")}</label>
+                  <input type="text" className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351]" placeholder={t("checkout.enterName")} />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#7c6a5a] mb-1">Email</label>
-                  <input type="email" className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351]" placeholder="Enter your email" />
+                  <label className="block text-xs font-semibold text-[#7c6a5a] mb-1">{t("checkout.email")}</label>
+                  <input type="email" className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351]" placeholder={t("checkout.enterEmail")} />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#7c6a5a] mb-1">Address</label>
-                  <textarea className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351]" placeholder="Enter your address" rows={2}></textarea>
+                  <label className="block text-xs font-semibold text-[#7c6a5a] mb-1">{t("checkout.address")}</label>
+                  <textarea className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351]" placeholder={t("checkout.enterAddress")} rows={2}></textarea>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-1">
-                    <label className="block text-xs font-semibold text-[#7c6a5a] mb-1">City</label>
-                    <input type="text" className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351]" placeholder="City" />
+                    <label className="block text-xs font-semibold text-[#7c6a5a] mb-1">{t("checkout.city")}</label>
+                    <input type="text" className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351]" placeholder={t("checkout.city")} />
                   </div>
                   <div className="flex-1">
-                    <label className="block text-xs font-semibold text-[#7c6a5a] mb-1">Pincode</label>
-                    <input type="text" className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351]" placeholder="Pincode" />
+                    <label className="block text-xs font-semibold text-[#7c6a5a] mb-1">{t("checkout.pincode")}</label>
+                    <input type="text" className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351]" placeholder={t("checkout.pincode")} />
                   </div>
                 </div>
               </form>
@@ -128,7 +130,7 @@ export default function Checkout() {
               onClick={handlePlaceOrder}
               disabled={cart.length === 0}
             >
-              Place Order
+              {t("checkout.placeOrder")}
             </button>
            
           </div>

@@ -16,6 +16,9 @@ import Contact from './pages/Contact';
 import Wishlist from './pages/Wishlist';
 import Checkout from './pages/Checkout';
 import Invoice from './pages/Invoice';
+import Account from './pages/Account';
+import AdminPanel from './components/adminDashboard/AdminPanel';
+import { SiteSettingsProvider } from "./components/SiteSettingsContext";
 
 
 
@@ -23,6 +26,7 @@ function AppContent() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
   const [loaderShown, setLoaderShown] = useState(false);
+  const isAdminRoute = location.pathname === '/admin' || location.pathname.startsWith('/admin/');
 
   useEffect(() => {
 
@@ -59,7 +63,7 @@ function AppContent() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Nav />
+          {!isAdminRoute && <Nav />}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -72,8 +76,10 @@ function AppContent() {
             <Route path='/wishlist' element={<Wishlist/>}/>
             <Route path="/checkout" element={<Checkout/>}/>
             <Route path="/invoice" element={<Invoice/>}/>
+            <Route path="/account" element={<Account/>}/>
+            <Route path="/admin" element={<AdminPanel />} />
           </Routes>
-          <Footer />
+          {!isAdminRoute && <Footer />}
         </motion.div>
       )}
     </AnimatePresence>
@@ -82,8 +88,10 @@ function AppContent() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
+    <SiteSettingsProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </SiteSettingsProvider>
   );
 }

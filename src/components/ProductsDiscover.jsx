@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 
 const items = [
@@ -11,13 +12,15 @@ const items = [
 ];
 
 export default function ProductsDiscover() {
+  const { t } = useTranslation();
+
   return (
     <section className="bg-[#fffaf9] mt-10">
       <div className=" mx-auto px-6 lg:px-8 py-14 ">
         
         
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#3b2418] tracking-wide mb-10">
-          DISCOVER OUR PRODUCTS
+          {t("home.discoverTitle").toUpperCase()}
         </h2>
 
 
@@ -63,7 +66,7 @@ export default function ProductsDiscover() {
               href="/product"
               className="bg-[#2f1d19] text-white px-8 py-3 rounded-full text-sm font-semibold shadow"
             >
-              ALL PRODUCT
+              {t("home.allProduct").toUpperCase()}
             </a>
           </div>
         </div>

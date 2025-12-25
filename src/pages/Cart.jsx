@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PopularProducts from "../components/PopularProducts";
 import { AiFillDelete } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const initialCart = [
 	{
@@ -42,6 +43,7 @@ const initialCart = [
 ];
 
 export default function Cart() {
+	const { t } = useTranslation();
 	const [cart, setCart] = useState(initialCart);
 	const Navigate = useNavigate();
 
@@ -63,7 +65,7 @@ export default function Cart() {
 				<div className="bg-[#fffaf9] min-h-screen pb-12">
 					{/* Header Bar */}
 					<div className="bg-[#ab8351] text-white px-6 py-3 flex items-center justify-between">
-						<h1 className="text-xl lg:ml-20 font-bold tracking-wide">Cart</h1>
+						<h1 className="text-xl lg:ml-20 font-bold tracking-wide">{t("cart.title")}</h1>
 					</div>
 
 					<div className="max-w-5xl mx-auto mt-10">
@@ -97,11 +99,11 @@ export default function Cart() {
 							<table className="w-full min-w-[700px] bg-[#f7f7f7] rounded-lg">
 								<thead>
 									<tr className="bg-[#ececec] text-[#3b2a23] text-sm">
-										<th className="py-3 px-4 text-left font-semibold">Product</th>
-										<th className="py-3 px-4 font-semibold">Price</th>
-										<th className="py-3 px-4 font-semibold">Quantity</th>
-										<th className="py-3 px-4 font-semibold">Total</th>
-										<th className="py-3 px-4 font-semibold">Action</th>
+										<th className="py-3 px-4 text-left font-semibold">{t("cart.product")}</th>
+										<th className="py-3 px-4 font-semibold">{t("cart.price")}</th>
+										<th className="py-3 px-4 font-semibold">{t("cart.quantity")}</th>
+										<th className="py-3 px-4 font-semibold">{t("cart.total")}</th>
+										<th className="py-3 px-4 font-semibold">{t("cart.action")}</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -121,7 +123,7 @@ export default function Cart() {
 											</td>
 											<td className="py-4 px-4 text-center text-[#ab8351] font-bold text-base ">₹{(item.price * item.qty).toFixed(2)}</td>
 											<td className="py-4 px-4 text-center">
-												<button onClick={() => removeItem(item.id)} className="text-[#ff4d3d] hover:text-[#c03d31] cursor-pointer text-lg p-2 rounded-full transition" title="Remove">
+												<button onClick={() => removeItem(item.id)} className="text-[#ff4d3d] hover:text-[#c03d31] cursor-pointer text-lg p-2 rounded-full transition" title={t("cart.remove")}>
 													<AiFillDelete />
 												</button>
 											</td>
@@ -132,10 +134,10 @@ export default function Cart() {
 						</div>
 
 						<div className="flex flex-col sm:flex-row justify-between items-center mt-8">
-							<a href="/product" className="text-[#ab8351] hover:underline text-base font-semibold mb-4 sm:mb-0">Continue Shopping</a>
+							<a href="/product" className="text-[#ab8351] hover:underline text-base font-semibold mb-4 sm:mb-0">{t("cart.continueShopping")}</a>
 							<div className="flex items-center gap-6">
-								<span className="font-bold text-[#3b2a23] text-lg">Total: ₹{total.toFixed(2)}</span>
-								<button onClick={()=>{Navigate("/checkout")}} className="bg-[#ab8351] hover:bg-[#51381a] text-white px-8 py-2 rounded-full text-base font-semibold shadow cursor-pointer transition">Check Out</button>
+								<span className="font-bold text-[#3b2a23] text-lg">{t("cart.total")}: ₹{total.toFixed(2)}</span>
+								<button onClick={()=>{Navigate("/checkout")}} className="bg-[#ab8351] hover:bg-[#51381a] text-white px-8 py-2 rounded-full text-base font-semibold shadow cursor-pointer transition">{t("cart.checkout")}</button>
 							</div>
 						</div>
 					</div>

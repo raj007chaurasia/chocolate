@@ -1,0 +1,189 @@
+{
+  "language": {
+    "label": "语言",
+    "english": "English",
+    "hindi": "हिंदी",
+    "chinese": "中文"
+  },
+  "nav": {
+    "home": "首页",
+    "products": "产品",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "account": "账户",
+    "wishlist": "心愿单",
+    "cart": "购物车",
+    "searchPlaceholder": "搜索商品...",
+    "allCategories": "所有分类",
+    "categories": {
+      "truffles": "松露",
+      "chocolates": "巧克力",
+      "spreads": "酱/涂抹酱",
+      "lollipops": "棒棒糖"
+    }
+  },
+  "hero": {
+    "title": "欢迎来到我们的\n巧克力批发\n配送机构",
+    "subtitle": "我们相信巧克力是生活中最美好的享受之一，并致力于为客户带来高品质巧克力。",
+    "shopNow": "立即购买"
+  },
+  "home": {
+    "productsTitle": "我们的产品",
+    "productsSubtitle": "用我们精心制作的优质巧克力满足你的甜蜜渴望——甄选高品质可可豆，口感浓郁醇厚。",
+    "discoverTitle": "探索我们的产品",
+    "allProduct": "全部产品",
+    "popularTitle": "热门产品",
+    "addToCart": "加入购物车",
+    "snacks": "零食",
+    "categories": {
+      "chocolateBars": "巧克力棒",
+      "truffles": "松露",
+      "lollipops": "棒棒糖",
+      "fruitsAndNuts": "水果与坚果",
+      "sugarFree": "无糖",
+      "spreads": "涂抹酱"
+    }
+  },
+  "footer": {
+    "followInstagram": "关注我们的 Instagram：",
+    "openingHours": "营业时间",
+    "hours": {
+      "monSat": "周一-周六：9:00am 至 7:00am",
+      "sunday": "周日：7:00am 至 1:00pm",
+      "holidays": "节假日休息"
+    },
+    "usefulLinks": "常用链接",
+    "privacyPolicy": "隐私政策",
+    "orderTracking": "订单追踪",
+    "addressTitle": "地址",
+    "copyright": "© 2026 Glory（Maa Bhagwati Product）。保留所有权利"
+  },
+  "about": {
+    "title": "关于我们",
+    "heading": "关于 Glory Maa Bhagwati Product",
+    "vendors": "供应商",
+    "customers": "客户",
+    "products": "产品",
+    "features": {
+      "packing": "产品包装",
+      "support": "24x7 支持",
+      "delivery": "5 天送达",
+      "secure": "安全支付",
+      "lorem": "Lorem ipsum dolor sit amet, consectetur adipisicing."
+    }
+  },
+  "contact": {
+    "title": "联系我们",
+    "name": "姓名*",
+    "email": "邮箱*",
+    "phone": "手机号*",
+    "message": "留言*",
+    "yourName": "你的姓名",
+    "yourEmail": "你的邮箱",
+    "yourPhone": "你的手机号",
+    "yourMessage": "你的留言",
+    "send": "发送消息"
+  },
+  "cart": {
+    "title": "购物车",
+    "product": "商品",
+    "price": "价格",
+    "quantity": "数量",
+    "total": "合计",
+    "action": "操作",
+    "remove": "移除",
+    "continueShopping": "继续购物",
+    "checkout": "去结算"
+  },
+  "product": {
+    "title": "产品页面",
+    "category": "产品分类",
+    "filterByPrice": "按价格筛选",
+    "weight": "重量",
+    "tags": "产品标签",
+    "pagination": {
+      "previous": "上一页",
+      "next": "下一页"
+    },
+    "wishlist": {
+      "remove": "从心愿单移除",
+      "add": "加入心愿单"
+    },
+    "categories": {
+      "all": "全部巧克力",
+      "dark": "黑巧克力",
+      "milk": "牛奶巧克力",
+      "truffles": "松露",
+      "spreads": "涂抹酱",
+      "lollipops": "棒棒糖"
+    },
+    "tagsList": {
+      "vegetarian": "素食",
+      "sugarfree": "无糖",
+      "glutenfree": "无麸质"
+    }
+  },
+  "wishlist": {
+    "title": "心愿单",
+    "empty": "你的心愿单是空的。",
+    "addToCart": "加入购物车",
+    "remove": "从心愿单移除"
+  },
+  "checkout": {
+    "title": "结算",
+    "orderSummary": "订单摘要",
+    "noItems": "购物车没有商品。",
+    "qty": "数量：{{count}}",
+    "subtotal": "小计",
+    "gst": "GST（5%）",
+    "delivery": "配送费",
+    "total": "总计",
+    "billingDetails": "账单信息",
+    "fullName": "姓名",
+    "enterName": "请输入姓名",
+    "email": "邮箱",
+    "enterEmail": "请输入邮箱",
+    "address": "地址",
+    "enterAddress": "请输入地址",
+    "city": "城市",
+    "pincode": "邮编",
+    "placeOrder": "提交订单"
+  },
+  "auth": {
+    "login": "登录",
+    "register": "注册",
+    "password": "密码*",
+    "enterEmail": "请输入邮箱",
+    "enterPassword": "请输入密码",
+    "createAccount": "创建账户？",
+    "haveAccount": "已有账户？",
+    "firstName": "名*",
+    "lastName": "姓*",
+    "phone": "手机号*",
+    "address": "地址*",
+    "city": "城市*",
+    "postCode": "邮编",
+    "country": "国家*",
+    "region": "省/州*",
+    "enterFirstName": "请输入名",
+    "enterLastName": "请输入姓",
+    "enterPhone": "请输入手机号"
+  },
+  "productDetails": {
+    "reviews": "（{{count}} 条评价）",
+    "brand": "品牌：",
+    "flavor": "口味：",
+    "dietType": "饮食类型：",
+    "weight": "重量：",
+    "tags": "标签：",
+    "sizeWeight": "规格/重量：",
+    "addToCart": "加入购物车",
+    "description": "描述",
+    "information": "信息",
+    "packagingDelivery": "包装与配送",
+    "infoPlaceholder": "这里显示产品信息。你可以根据需要添加更多细节。"
+  },
+  "admin": {
+    "title": "管理后台"
+  }
+}

@@ -1,34 +1,37 @@
 import React from 'react';
 import { FiPhone, FiMail, FiClock, FiMapPin, FiInstagram, FiFacebook, FiTwitter } from 'react-icons/fi';
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+	const { t } = useTranslation();
+
 	return (
 		<div className="bg-[#fffaf9] min-h-screen py-10 px-2 flex flex-col items-center">
 			<div className="max-w-5xl w-full bg-white rounded-lg shadow p-6 md:p-10 flex flex-col md:flex-row gap-10 border border-[#ececec]">
 				{/* Contact Form */}
 				<form className="flex-1 flex flex-col gap-4">
-					<h2 className="text-2xl font-bold text-[#3b2a23] mb-2">Contact Us</h2>
+					<h2 className="text-2xl font-bold text-[#3b2a23] mb-2">{t("contact.title")}</h2>
 					<div className="flex flex-col md:flex-row gap-4">
 						<div className="flex-1">
-							<label className="block text-sm font-semibold text-[#3b2a23] mb-1">Name*</label>
-							<input type="text" placeholder="Your Name" className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351] bg-[#fffaf9]" />
+							<label className="block text-sm font-semibold text-[#3b2a23] mb-1">{t("contact.name")}</label>
+							<input type="text" placeholder={t("contact.yourName")} className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351] bg-[#fffaf9]" />
 						</div>
 						<div className="flex-1">
-							<label className="block text-sm font-semibold text-[#3b2a23] mb-1">Email*</label>
-							<input type="email" placeholder="Your Email" className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351] bg-[#fffaf9]" />
+							<label className="block text-sm font-semibold text-[#3b2a23] mb-1">{t("contact.email")}</label>
+							<input type="email" placeholder={t("contact.yourEmail")} className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351] bg-[#fffaf9]" />
 						</div>
 					</div>
 					<div className="flex flex-col md:flex-row gap-4">
 						<div className="flex-1">
-							<label className="block text-sm font-semibold text-[#3b2a23] mb-1">Phone Number*</label>
-							<input type="tel" placeholder="Your Phone Number" className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351] bg-[#fffaf9]" />
+							<label className="block text-sm font-semibold text-[#3b2a23] mb-1">{t("contact.phone")}</label>
+							<input type="tel" placeholder={t("contact.yourPhone")} className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351] bg-[#fffaf9]" />
 						</div>
 					</div>
 					<div>
-						<label className="block text-sm font-semibold text-[#3b2a23] mb-1">Message*</label>
-						<textarea placeholder="Your Message" rows={4} className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351] bg-[#fffaf9] resize-none" />
+						<label className="block text-sm font-semibold text-[#3b2a23] mb-1">{t("contact.message")}</label>
+						<textarea placeholder={t("contact.yourMessage")} rows={4} className="w-full border border-[#ececec] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#ab8351] bg-[#fffaf9] resize-none" />
 					</div>
-					<button type="submit" className="hover:bg-[#643e2f] bg-[#ab8351] cursor-pointer text-white px-8 py-2 rounded text-base font-semibold shadow transition self-start mt-2">Send Message</button>
+					<button type="submit" className="hover:bg-[#643e2f] bg-[#ab8351] cursor-pointer text-white px-8 py-2 rounded text-base font-semibold shadow transition self-start mt-2">{t("contact.send")}</button>
 				</form>
 
 				{/* Company Info */}

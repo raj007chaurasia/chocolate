@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FiHeart, FiShoppingCart } from 'react-icons/fi';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { useTranslation } from "react-i18next";
 
 const initialWishlist = [
 	{
@@ -24,6 +25,7 @@ const initialWishlist = [
 ];
 
 export default function Wishlist() {
+	const { t } = useTranslation();
 	const [wishlist, setWishlist] = useState(initialWishlist);
 
 	const [activeHearts, setActiveHearts] = useState(wishlist.map(item => item.id));
@@ -44,7 +46,7 @@ export default function Wishlist() {
 		<div className="bg-[#fffaf9] min-h-screen pb-12">
 			{/* Header Bar */}
 			<div className="bg-[#ab8351] text-white px-6 py-3 flex items-center justify-between">
-				<h1 className="text-xl lg:ml-10 font-bold tracking-wide">Wishlist</h1>
+				<h1 className="text-xl lg:ml-10 font-bold tracking-wide">{t("wishlist.title")}</h1>
 			</div>
 
 			<div className="max-w-4xl mx-auto mt-10 px-2">
@@ -52,7 +54,7 @@ export default function Wishlist() {
 					{wishlist.length === 0 ? (
 						<div className="col-span-full text-center text-[#7c6a5a] text-lg font-semibold py-12">
 							<FiHeart className="mx-auto text-4xl mb-2 animate-pulse text-[#ab8351]" />
-							Your wishlist is empty.
+							{t("wishlist.empty")}
 						</div>
 					) : (
 						wishlist.map(item => (
@@ -72,15 +74,15 @@ export default function Wishlist() {
 								<div className="flex gap-3 mt-auto">
 									<button
 										className="flex items-center gap-1 hover:bg-[#51381a] bg-[#ab8351] text-white px-4 py-2 rounded-full text-xs font-semibold shadow transition cursor-pointer active:scale-95"
-										title="Add to Cart"
+										title={t("wishlist.addToCart")}
 									>
-										<FiShoppingCart className="text-base" /> Add to Cart
+										<FiShoppingCart className="text-base" /> {t("wishlist.addToCart")}
 									</button>
 								</div>
 								<button
 									className="absolute top-3 right-3 text-xl group-hover:scale-125 transition-transform duration-200 cursor-pointer"
 									onClick={() => toggleHeart(item.id)}
-									title="Remove from Wishlist"
+									title={t("wishlist.remove")}
 								>
 									{activeHearts.includes(item.id) ? (
 										<AiFillHeart className="text-[#ff4d3d]" />

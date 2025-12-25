@@ -1,15 +1,18 @@
 import React from "react";
-
-const items = [
-  { id: 1, label: "CHOCOLATE BARS", img: './images/Chocolate.png' },
-  { id: 2, label: "TRUFFLES", img: './images/Truffle.png' },
-  { id: 3, label: "LOLLIPOPS", img: './images/Lollipop.png' },
-  { id: 4, label: "FRUITS AND NUTS", img: './images/Bonbon.png' },
-  { id: 5, label: "SUGAR-FREE", img: './images/Chocolate.png' },
-  { id: 6, label: "SPREADS", img: './images/Chocolate1.png' },
-];
+import { useTranslation } from "react-i18next";
 
 export default function Products() {
+  const { t } = useTranslation();
+
+  const items = [
+    { id: 1, label: t("home.categories.chocolateBars"), img: './images/Chocolate.png' },
+    { id: 2, label: t("home.categories.truffles"), img: './images/Truffle.png' },
+    { id: 3, label: t("home.categories.lollipops"), img: './images/Lollipop.png' },
+    { id: 4, label: t("home.categories.fruitsAndNuts"), img: './images/Bonbon.png' },
+    { id: 5, label: t("home.categories.sugarFree"), img: './images/Chocolate.png' },
+    { id: 6, label: t("home.categories.spreads"), img: './images/Chocolate1.png' },
+  ];
+
   return (
     <section aria-labelledby="our-products" className="bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 sm:py-16">
@@ -18,12 +21,11 @@ export default function Products() {
         <header className="text-center">
           
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3b2418] tracking-wide">
-            OUR PRODUCT
+            {t("home.productsTitle").toUpperCase()}
           </h2>
 
           <p className="mt-4 max-w-3xl mx-auto text-sm sm:text-base text-[#6b4f46]">
-            Satisfy your sweet tooth with our premium chocolate, expertly crafted from
-            the highest quality cocoa beans for a rich, decadent flavor.
+            {t("home.productsSubtitle")}
           </p>
         </header>
 
