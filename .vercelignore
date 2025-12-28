@@ -15,10 +15,4 @@ yarn-error.log*
 *.swo
 coverage
 .cache
-src
-public
-package.json
-package-lock.json
-vite.config.js
-eslint.config.js
-README.md
+dist
