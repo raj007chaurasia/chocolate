@@ -1,0 +1,189 @@
+{
+  "language": {
+    "label": "भाषा",
+    "english": "English",
+    "hindi": "हिंदी",
+    "chinese": "中文"
+  },
+  "nav": {
+    "home": "होम",
+    "products": "उत्पाद",
+    "about": "हमारे बारे में",
+    "contact": "संपर्क",
+    "account": "अकाउंट",
+    "wishlist": "विशलिस्ट",
+    "cart": "कार्ट",
+    "searchPlaceholder": "आइटम खोजें...",
+    "allCategories": "सभी श्रेणियाँ",
+    "categories": {
+      "truffles": "ट्रफल्स",
+      "chocolates": "चॉकलेट्स",
+      "spreads": "स्प्रेड्स",
+      "lollipops": "लॉलीपॉप्स"
+    }
+  },
+  "hero": {
+    "title": "हमारे\nथोक चॉकलेट\nडिस्ट्रिब्यूशन एजेंसी में आपका स्वागत है",
+    "subtitle": "हम मानते हैं कि चॉकलेट जीवन की सबसे बड़ी खुशियों में से एक है, और हम अपने ग्राहकों तक सर्वोत्तम गुणवत्ता की चॉकलेट पहुँचाने के लिए समर्पित हैं।",
+    "shopNow": "अभी खरीदें"
+  },
+  "home": {
+    "productsTitle": "हमारे उत्पाद",
+    "productsSubtitle": "हमारी प्रीमियम चॉकलेट के साथ अपनी मिठास की चाह पूरी करें — बेहतरीन कोको बीन्स से तैयार, समृद्ध और शानदार स्वाद के लिए।",
+    "discoverTitle": "हमारे उत्पाद खोजें",
+    "allProduct": "सभी उत्पाद",
+    "popularTitle": "लोकप्रिय उत्पाद",
+    "addToCart": "कार्ट में जोड़ें",
+    "snacks": "स्नैक्स",
+    "categories": {
+      "chocolateBars": "चॉकलेट बार्स",
+      "truffles": "ट्रफल्स",
+      "lollipops": "लॉलीपॉप्स",
+      "fruitsAndNuts": "फ्रूट्स और नट्स",
+      "sugarFree": "शुगर-फ्री",
+      "spreads": "स्प्रेड्स"
+    }
+  },
+  "footer": {
+    "followInstagram": "हमारा Instagram फॉलो करें:",
+    "openingHours": "खुलने का समय",
+    "hours": {
+      "monSat": "सोम-शनि: 9:00am से 7:00am",
+      "sunday": "रविवार: 7:00am से 1:00pm",
+      "holidays": "छुट्टियों पर बंद"
+    },
+    "usefulLinks": "उपयोगी लिंक",
+    "privacyPolicy": "गोपनीयता नीति",
+    "orderTracking": "ऑर्डर ट्रैकिंग",
+    "addressTitle": "पता",
+    "copyright": "© 2026 Glory (Maa Bhagwati Product). सर्वाधिकार सुरक्षित"
+  },
+  "about": {
+    "title": "हमारे बारे में",
+    "heading": "Glory Maa Bhagwati Product के बारे में",
+    "vendors": "विक्रेता",
+    "customers": "ग्राहक",
+    "products": "उत्पाद",
+    "features": {
+      "packing": "उत्पाद पैकिंग",
+      "support": "24x7 सहायता",
+      "delivery": "5 दिनों में डिलीवरी",
+      "secure": "सुरक्षित भुगतान",
+      "lorem": "लोरम इप्सम डोलर सिट अमेट, कोंसेक्टेटर एडिपिसिसिंग।"
+    }
+  },
+  "contact": {
+    "title": "संपर्क करें",
+    "name": "नाम*",
+    "email": "ईमेल*",
+    "phone": "फोन नंबर*",
+    "message": "संदेश*",
+    "yourName": "आपका नाम",
+    "yourEmail": "आपका ईमेल",
+    "yourPhone": "आपका फोन नंबर",
+    "yourMessage": "आपका संदेश",
+    "send": "संदेश भेजें"
+  },
+  "cart": {
+    "title": "कार्ट",
+    "product": "उत्पाद",
+    "price": "कीमत",
+    "quantity": "मात्रा",
+    "total": "कुल",
+    "action": "कार्य",
+    "remove": "हटाएँ",
+    "continueShopping": "खरीदारी जारी रखें",
+    "checkout": "चेकआउट"
+  },
+  "product": {
+    "title": "उत्पाद पेज",
+    "category": "उत्पाद श्रेणी",
+    "filterByPrice": "कीमत के अनुसार फ़िल्टर",
+    "weight": "वजन",
+    "tags": "उत्पाद टैग",
+    "pagination": {
+      "previous": "पिछला",
+      "next": "अगला"
+    },
+    "wishlist": {
+      "remove": "विशलिस्ट से हटाएँ",
+      "add": "विशलिस्ट में जोड़ें"
+    },
+    "categories": {
+      "all": "सभी चॉकलेट",
+      "dark": "डार्क चॉकलेट",
+      "milk": "मिल्क चॉकलेट",
+      "truffles": "ट्रफल्स",
+      "spreads": "स्प्रेड्स",
+      "lollipops": "लॉलीपॉप्स"
+    },
+    "tagsList": {
+      "vegetarian": "शाकाहारी",
+      "sugarfree": "शुगर-फ्री",
+      "glutenfree": "ग्लूटेन-फ्री"
+    }
+  },
+  "wishlist": {
+    "title": "विशलिस्ट",
+    "empty": "आपकी विशलिस्ट खाली है।",
+    "addToCart": "कार्ट में जोड़ें",
+    "remove": "विशलिस्ट से हटाएँ"
+  },
+  "checkout": {
+    "title": "चेकआउट",
+    "orderSummary": "ऑर्डर सारांश",
+    "noItems": "कार्ट में कोई आइटम नहीं है।",
+    "qty": "मात्रा: {{count}}",
+    "subtotal": "सबटोटल",
+    "gst": "GST (5%)",
+    "delivery": "डिलीवरी",
+    "total": "कुल",
+    "billingDetails": "बिलिंग विवरण",
+    "fullName": "पूरा नाम",
+    "enterName": "अपना नाम दर्ज करें",
+    "email": "ईमेल",
+    "enterEmail": "अपना ईमेल दर्ज करें",
+    "address": "पता",
+    "enterAddress": "अपना पता दर्ज करें",
+    "city": "शहर",
+    "pincode": "पिनकोड",
+    "placeOrder": "ऑर्डर करें"
+  },
+  "auth": {
+    "login": "लॉगिन",
+    "register": "रजिस्टर",
+    "password": "पासवर्ड*",
+    "enterEmail": "अपना ईमेल दर्ज करें",
+    "enterPassword": "अपना पासवर्ड दर्ज करें",
+    "createAccount": "अकाउंट बनाएं?",
+    "haveAccount": "पहले से अकाउंट है?",
+    "firstName": "पहला नाम*",
+    "lastName": "अंतिम नाम*",
+    "phone": "फोन नंबर*",
+    "address": "पता*",
+    "city": "शहर*",
+    "postCode": "पोस्ट कोड",
+    "country": "देश*",
+    "region": "राज्य/क्षेत्र*",
+    "enterFirstName": "अपना पहला नाम दर्ज करें",
+    "enterLastName": "अपना अंतिम नाम दर्ज करें",
+    "enterPhone": "अपना फोन नंबर दर्ज करें"
+  },
+  "productDetails": {
+    "reviews": "({{count}} रिव्यू)",
+    "brand": "ब्रांड:",
+    "flavor": "फ्लेवर:",
+    "dietType": "डाइट प्रकार:",
+    "weight": "वजन:",
+    "tags": "टैग्स:",
+    "sizeWeight": "साइज़/वजन:",
+    "addToCart": "कार्ट में जोड़ें",
+    "description": "विवरण",
+    "information": "जानकारी",
+    "packagingDelivery": "पैकेजिंग और डिलीवरी",
+    "infoPlaceholder": "उत्पाद की जानकारी यहाँ दिखाई जाएगी। आप आवश्यकता अनुसार और विवरण जोड़ सकते हैं।"
+  },
+  "admin": {
+    "title": "एडमिन पैनल"
+  }
+}

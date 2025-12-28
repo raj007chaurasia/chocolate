@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* Admin sidebar scrollbar (scoped) */
+.admin-sidebar-scroll {
+	scrollbar-width: thin; /* Firefox */
+	scrollbar-color: #ab8351 #f7f7f7; /* thumb track */
+}
+
+.admin-sidebar-scroll::-webkit-scrollbar {
+	width: 10px;
+}
+
+.admin-sidebar-scroll::-webkit-scrollbar-track {
+	background: #f7f7f7;
+	border-left: 1px solid #ececec;
+}
+
+.admin-sidebar-scroll::-webkit-scrollbar-thumb {
+	background: #ab8351;
+	border-radius: 999px;
+	border: 2px solid #f7f7f7;
+}
+
+.admin-sidebar-scroll::-webkit-scrollbar-thumb:hover {
+	background: #ab8351;
+}
+
